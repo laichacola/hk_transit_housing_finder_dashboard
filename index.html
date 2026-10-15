@@ -85,40 +85,37 @@
 
   <!-- MAIN NAVIGATION HEADER -->
   <header class="bg-white border-b border-slate-200 sticky top-0 z-30 shadow-xs">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16 sm:h-20">
-        <!-- Logo / Title -->
-        <div class="flex items-center space-x-3">
-          <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-blue-700 text-white flex items-center justify-center shadow-md shadow-blue-500/20">
-            <i class="ph-bold ph-buildings text-2xl"></i>
+    <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-2.5 sm:py-3">
+      <div class="flex items-center justify-between gap-2">
+        <!-- Logo / Simplified Title -->
+        <div class="flex items-center gap-2.5 min-w-0">
+          <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-blue-700 text-white flex items-center justify-center shrink-0 shadow-xs">
+            <i class="ph-bold ph-buildings text-xl"></i>
           </div>
-          <div>
-            <div class="flex items-center gap-2">
-              <h1 class="text-base sm:text-lg font-bold text-slate-900 leading-tight">
-                香港簡約公屋 & 過渡性房屋 配額速查系統
-              </h1>
-            </div>
-            <p class="text-xs text-slate-500">
-              Light Public Housing (LPH) & Transitional Housing Vacancy & Patient Matching Portal
+          <div class="min-w-0">
+            <h1 class="text-sm sm:text-lg font-bold text-slate-900 truncate">
+              簡約公屋 & 過渡屋速查
+            </h1>
+            <p class="text-[11px] text-slate-500 truncate hidden sm:block">
+              香港過渡性房屋及簡約公屋配額與申請指南
             </p>
           </div>
         </div>
 
-        <!-- Quick Top Action Buttons -->
-        <div class="flex items-center gap-2 sm:gap-3">
-          <button onclick="openMatcherModal()" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-teal-600 hover:bg-teal-700 text-white text-xs sm:text-sm font-semibold transition-all shadow-sm">
-            <i class="ph-bold ph-magic-wand text-base"></i>
-            <span class="hidden md:inline">啟動</span>病人配對助手
+        <!-- Compact Non-Wrapping Action Buttons -->
+        <div class="flex items-center gap-1.5 sm:gap-2 shrink-0">
+          <button onclick="openMatcherModal()" class="inline-flex items-center gap-1 px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-lg bg-teal-600 hover:bg-teal-700 text-white text-xs sm:text-sm font-semibold transition-all whitespace-nowrap shadow-2xs">
+            <i class="ph-bold ph-magic-wand text-sm"></i>
+            <span>配對助手</span>
           </button>
           
-          <button onclick="openAddEditModal()" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-semibold transition-all shadow-sm">
-            <i class="ph-bold ph-plus-circle text-base"></i>
-            <span class="hidden sm:inline">更新/登記項目名額</span>
-            <span class="sm:hidden">更新配額</span>
+          <button onclick="openAddEditModal()" class="inline-flex items-center gap-1 px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-semibold transition-all whitespace-nowrap shadow-2xs">
+            <i class="ph-bold ph-plus-circle text-sm"></i>
+            <span>更新配額</span>
           </button>
           
-          <button onclick="resetDataToDefault()" title="還原初始資料庫" class="p-2 text-slate-400 hover:text-slate-600 hover:bg-slate-100 rounded-lg transition-colors">
-            <i class="ph ph-arrows-clockwise text-lg"></i>
+          <button onclick="resetDataToDefault()" title="還原初始資料庫" class="p-1.5 sm:p-2 text-slate-400 hover:text-slate-600 hover:bg-slate-100 rounded-lg transition-colors shrink-0">
+            <i class="ph ph-arrows-clockwise text-base sm:text-lg"></i>
           </button>
         </div>
       </div>
@@ -126,68 +123,136 @@
   </header>
 
   <!-- MAIN APP CONTAINER -->
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex-1 w-full space-y-6">
+  <main class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-6 flex-1 w-full space-y-4">
 
-    <!-- SUMMARY STATS BAR -->
-    <section class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+    <!-- SUMMARY STATS BAR (CLEAN & COMPACT) -->
+    <section class="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4">
       <!-- Total Projects -->
-      <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-xs flex items-center justify-between">
-        <div>
-          <p class="text-xs font-medium text-slate-500">總追蹤項目 (Projects)</p>
-          <p id="statTotalProjects" class="text-xl sm:text-2xl font-bold text-slate-900 mt-1">--</p>
-          <div class="flex items-center gap-1 text-[11px] text-blue-600 mt-1">
-            <i class="ph ph-check-circle"></i>
-            <span id="statSubTotalType">-- 簡約公屋 / -- 過渡房屋</span>
-          </div>
+      <div class="bg-white p-3 sm:p-4 rounded-xl border border-slate-200 shadow-2xs">
+        <div class="flex items-center justify-between">
+          <p class="text-xs font-medium text-slate-500">總項目數量</p>
+          <i class="ph-bold ph-stack text-blue-600 text-base"></i>
         </div>
-        <div class="w-10 h-10 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center text-xl">
-          <i class="ph-bold ph-stack"></i>
-        </div>
+        <p id="statTotalProjects" class="text-lg sm:text-2xl font-bold text-slate-900 mt-1">--</p>
+        <p id="statSubTotalType" class="text-[11px] text-slate-500 mt-0.5 truncate">-- 簡約 / -- 過渡</p>
       </div>
 
       <!-- Live Available Quotas -->
-      <div class="bg-white p-4 rounded-xl border border-emerald-200 bg-gradient-to-br from-emerald-50/40 to-white shadow-xs flex items-center justify-between">
-        <div>
-          <p class="text-xs font-medium text-emerald-800 font-semibold">即時/開放名額 (Available Units)</p>
-          <p id="statTotalVacancies" class="text-xl sm:text-2xl font-bold text-emerald-600 mt-1">--</p>
-          <div class="flex items-center gap-1 text-[11px] text-emerald-700 mt-1">
-            <i class="ph-bold ph-check"></i>
-            <span>現正接受即時入伙/遞表</span>
-          </div>
+      <div class="bg-emerald-50/60 p-3 sm:p-4 rounded-xl border border-emerald-200 shadow-2xs">
+        <div class="flex items-center justify-between">
+          <p class="text-xs font-semibold text-emerald-800">即時可用名額</p>
+          <i class="ph-bold ph-door-open text-emerald-600 text-base"></i>
         </div>
-        <div class="w-10 h-10 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center text-xl">
-          <i class="ph-bold ph-door-open"></i>
-        </div>
+        <p id="statTotalVacancies" class="text-lg sm:text-2xl font-bold text-emerald-600 mt-1">--</p>
+        <p class="text-[11px] text-emerald-700 mt-0.5 truncate">現正接受申請</p>
       </div>
 
       <!-- Active Application Round -->
-      <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-xs flex items-center justify-between">
-        <div>
-          <p class="text-xs font-medium text-slate-500">接受申請中項目 (Open Projects)</p>
-          <p id="statOpenProjects" class="text-xl sm:text-2xl font-bold text-slate-900 mt-1">--</p>
-          <div class="flex items-center gap-1 text-[11px] text-amber-600 mt-1">
-            <i class="ph ph-clock"></i>
-            <span id="statWaitlistCount">-- 個項目輪候中</span>
-          </div>
+      <div class="bg-white p-3 sm:p-4 rounded-xl border border-slate-200 shadow-2xs">
+        <div class="flex items-center justify-between">
+          <p class="text-xs font-medium text-slate-500">開放申請項目</p>
+          <i class="ph-bold ph-pencil-line text-amber-600 text-base"></i>
         </div>
-        <div class="w-10 h-10 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center text-xl">
-          <i class="ph-bold ph-pencil-line"></i>
-        </div>
+        <p id="statOpenProjects" class="text-lg sm:text-2xl font-bold text-slate-900 mt-1">--</p>
+        <p id="statWaitlistCount" class="text-[11px] text-amber-600 mt-0.5 truncate">-- 個輪候中</p>
       </div>
 
       <!-- Category B Medical Quota -->
-      <div class="bg-white p-4 rounded-xl border border-indigo-200 bg-gradient-to-br from-indigo-50/40 to-white shadow-xs flex items-center justify-between">
-        <div>
-          <p class="text-xs font-medium text-indigo-900 font-semibold">乙類/醫療社工轉介配額</p>
-          <p id="statCategoryBCount" class="text-xl sm:text-2xl font-bold text-indigo-700 mt-1">--</p>
-          <div class="flex items-center gap-1 text-[11px] text-indigo-700 mt-1">
-            <i class="ph ph-stethoscope"></i>
-            <span>輪候公屋少於3年或突發特快</span>
-          </div>
+      <div class="bg-indigo-50/60 p-3 sm:p-4 rounded-xl border border-indigo-200 shadow-2xs">
+        <div class="flex items-center justify-between">
+          <p class="text-xs font-semibold text-indigo-900">乙類特快配額</p>
+          <i class="ph-bold ph-first-aid-kit text-indigo-600 text-base"></i>
         </div>
-        <div class="w-10 h-10 rounded-lg bg-indigo-100 text-indigo-700 flex items-center justify-center text-xl">
-          <i class="ph-bold ph-first-aid-kit"></i>
-        </div>
+        <p id="statCategoryBCount" class="text-lg sm:text-2xl font-bold text-indigo-700 mt-1">--</p>
+        <p class="text-[11px] text-indigo-700 mt-0.5 truncate">公屋未滿3年可申</p>
+      </div>
+    </section>
+
+    <!-- SEARCH & FILTER TOOLBAR -->
+    <section class="bg-white p-3 sm:p-4 rounded-xl border border-slate-200 shadow-2xs space-y-3">
+      <!-- Search Input -->
+      <div class="relative">
+        <i class="ph ph-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-base"></i>
+        <input 
+          type="text" 
+          id="searchInput" 
+          placeholder="搜尋地區 (如：元朗/流浮山/真善路/啟德)、機構、醫院..." 
+          class="w-full pl-9 pr-9 py-2 text-sm bg-slate-50 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:bg-white"
+          oninput="handleFilterChange()"
+        >
+        <button id="clearSearchBtn" onclick="clearSearch()" class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 text-base">
+          <i class="ph ph-x-circle"></i>
+        </button>
+      </div>
+
+      <!-- Quick filter chips -->
+      <div class="flex items-center gap-1.5 overflow-x-auto pb-1 no-scrollbar">
+        <button onclick="quickFilter('yl_tsw')" class="text-xs px-2.5 py-1.5 bg-amber-50 hover:bg-amber-100 text-amber-800 rounded-lg whitespace-nowrap flex items-center gap-1 border border-amber-200 font-medium shrink-0">
+          <i class="ph-bold ph-map-pin text-amber-600"></i> 元朗/天水圍/流浮山
+        </button>
+        <button onclick="quickFilter('accessible')" class="text-xs px-2.5 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg whitespace-nowrap flex items-center gap-1 border border-slate-200 shrink-0">
+          <i class="ph-bold ph-wheelchair text-blue-600"></i> 有電梯/無障礙
+        </button>
+        <button onclick="quickFilter('immediate')" class="text-xs px-2.5 py-1.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 rounded-lg whitespace-nowrap flex items-center gap-1 border border-emerald-200 shrink-0">
+          <i class="ph-bold ph-lightning text-emerald-600"></i> 即時有位
+        </button>
+        <button onclick="resetFilters()" class="text-xs px-2.5 py-1.5 text-slate-500 hover:text-slate-800 hover:bg-slate-100 rounded-lg whitespace-nowrap shrink-0">
+          <i class="ph ph-arrow-counter-clockwise"></i> 重設
+        </button>
+      </div>
+
+      <!-- Clean 4-Column Filter Selectors -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-2 border-t border-slate-100 text-xs">
+        <!-- Scheme Type -->
+        <select id="filterType" onchange="handleFilterChange()" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-2 py-1.5 focus:outline-none focus:ring-1 focus:ring-blue-600">
+          <option value="all">所有類別 (簡約+過渡)</option>
+          <option value="LPH">簡約公屋</option>
+          <option value="Transitional">過渡性房屋</option>
+        </select>
+
+        <!-- District -->
+        <select id="filterDistrict" onchange="handleFilterChange()" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-2 py-1.5 focus:outline-none focus:ring-1 focus:ring-blue-600">
+          <option value="all">全港地區</option>
+          <optgroup label="三大區域">
+            <option value="新界">新界全區</option>
+            <option value="九龍">九龍全區</option>
+            <option value="港島">港島全區</option>
+          </optgroup>
+          <optgroup label="新界細分">
+            <option value="元朗/天水圍/流浮山">元朗 / 天水圍 / 流浮山</option>
+            <option value="牛潭尾/新田/錦田">牛潭尾 / 真善路 / 錦田</option>
+            <option value="屯門/洪水橋">屯門 / 洪水橋 / 小欖</option>
+            <option value="荃灣/葵青">荃灣 / 葵涌 / 青衣</option>
+            <option value="上水/打鼓嶺/大埔">上水 / 打鼓嶺 / 大埔</option>
+            <option value="沙田/馬鞍山/將軍澳">馬鞍山 / 將軍澳</option>
+          </optgroup>
+          <optgroup label="市區細分">
+            <option value="深水埗/長沙灣">深水埗 / 長沙灣</option>
+            <option value="九龍城/啟德/土瓜灣">九龍城 / 啟德</option>
+            <option value="黃大仙/牛頭角/觀塘">黃大仙 / 牛頭角</option>
+            <option value="柴灣/港島南">柴灣 / 港島</option>
+          </optgroup>
+        </select>
+
+        <!-- Household Size Fit -->
+        <select id="filterHousehold" onchange="handleFilterChange()" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-2 py-1.5 focus:outline-none focus:ring-1 focus:ring-blue-600">
+          <option value="all">所有家庭人數</option>
+          <option value="1">1 人單位</option>
+          <option value="2">2 人單位</option>
+          <option value="3-4">3 - 4 人單位</option>
+          <option value="5+">5 人或以上</option>
+        </select>
+
+        <!-- Accessibility -->
+        <select id="filterAccessible" onchange="handleFilterChange()" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-2 py-1.5 focus:outline-none focus:ring-1 focus:ring-blue-600">
+          <option value="all">電梯/無障礙 (不限)</option>
+          <option value="yes">必須有電梯 (Lift)</option>
+          <option value="special">設輪椅無障礙單位</option>
+        </select>
+
+        <!-- Hidden selects to preserve existing JS compatibility -->
+        <select id="filterStatus" class="hidden"><option value="all">all</option><option value="open">open</option></select>
+        <select id="filterCategory" class="hidden"><option value="all">all</option><option value="catB">catB</option></select>
       </div>
     </section>
 
