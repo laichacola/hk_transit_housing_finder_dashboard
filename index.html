@@ -329,8 +329,8 @@
         <p class="mt-0.5">本系統資料整合自房屋局「簡約公屋」計劃、過渡性房屋「住得易」平台及各營運機構（NGO）公告，僅供醫療社工及前線醫護作個案評估與諮詢用途。</p>
       </div>
       <div class="flex items-center gap-4 text-slate-600">
-        <a href="https://www.hb.gov.hk" target="_blank" class="hover:text-blue-600 underline">房屋局 Housing Bureau</a>
-        <a href="https://th-homes.hk" target="_blank" class="hover:text-blue-600 underline">過渡性房屋「住得易」</a>
+        <a href="https://www.hb.gov.hk/tc/lph/" target="_blank" class="hover:text-blue-600 underline">房屋局簡約公屋</a>
+        <a href="https://www.hb.gov.hk/tc/policy/housing/policy/transitional/tenantapplications.html" target="_blank" class="hover:text-blue-600 underline">過渡性房屋「住得易」申請</a>
         <button onclick="exportDataJSON()" class="hover:text-blue-600 flex items-center gap-1">
           <i class="ph ph-download-simple"></i> 匯出備份資料
         </button>
@@ -726,6 +726,9 @@
     /* ===================================================================
        1. REALISTIC DATASET (LIGHT PUBLIC HOUSING & TRANSITIONAL HOUSING)
        =================================================================== */
+    const OFFICIAL_TH_URL = "https://www.hb.gov.hk/tc/policy/housing/policy/transitional/tenantapplications.html";
+    const OFFICIAL_LPH_URL = "https://www.hb.gov.hk/tc/lph/";
+
     const DEFAULT_PROJECTS = [
       // ==================== 新界西：流浮山 / 天水圍 / 元朗牛潭尾 / 真善路重點項目 ====================
       {
@@ -751,7 +754,7 @@
         hospitalNearby: "天水圍醫院 (Tin Shui Wai Hospital)、博愛醫院、屯門醫院",
         description: "東華三院營運之大型過渡性房屋，樓高4層並配備升降機 (Lift)，每個單位均設獨立露台、獨立洗手間及煮食空間。屋苑內設綜合社區服務處、活動室、自助洗衣房及綠化休憩花園，極受天水圍及元朗覆診病人歡迎。",
         contact: "2859 7500 / 3598 0060 (東華三院流浮．東寓辦事處)",
-        officialUrl: "https://th-homes.hk",
+        officialUrl: OFFICIAL_TH_URL,
         googleMapQuery: "231+Deep+Bay+Road+Lau+Fau+Shan+Yuen+Long",
         lastUpdated: "2026-10-15"
       },
@@ -778,7 +781,7 @@
         hospitalNearby: "博愛醫院 (Pok Oi Hospital)、北區醫院 (North District Hospital)",
         description: "位於元朗真善路8號的大型電梯過渡性房屋，由3幢4層高住宅大樓及1幢2層高綜合社會服務大樓組成。設有升降機、6個輪椅專用無障礙單位、社區膳食/便利設施及駐場社工健康支援。",
         contact: "2475 0333 / WhatsApp: 6882 9102 (新社聯社會服務基金)",
-        officialUrl: "https://th-homes.hk",
+        officialUrl: OFFICIAL_TH_URL,
         googleMapQuery: "8+Chun+Shin+Road+Ngau+Tam+Mei+Yuen+Long",
         lastUpdated: "2026-10-15"
       },
@@ -805,7 +808,7 @@
         hospitalNearby: "博愛醫院、北區醫院",
         description: "樂善堂營運之千伙大型社區，附設樂善堂社區飯堂、基層醫療健康諮詢站、社區藥房藥物派送服務及家庭活動中心，特別適合需要醫療及膳食支援之基層病患。",
         contact: "2272 9888 / 2382 1576 (九龍樂善堂)",
-        officialUrl: "https://th-homes.hk",
+        officialUrl: OFFICIAL_TH_URL,
         googleMapQuery: "San+Tam+Road+Shin+Tin+Yuen+Long",
         lastUpdated: "2026-10-14"
       },
@@ -834,7 +837,7 @@
         hospitalNearby: "博愛醫院 (Pok Oi Hospital)、北區醫院、元朗賽馬會健康院",
         description: "首批入伙之簡約公屋項目，租金極低廉（僅傳統公屋約9折）。配備獨立洗手間、淋浴間、開放式煮食空間。地下設有社區服務設施、便利店、自助洗衣房及長者活動角。",
         contact: "3464 0700 (房屋局簡約公屋專線)",
-        officialUrl: "https://www.hb.gov.hk/tc/lph/index.html",
+        officialUrl: OFFICIAL_LPH_URL,
         googleMapQuery: "Yau+Pok+Road+Yuen+Long",
         lastUpdated: "2026-10-15"
       },
@@ -861,7 +864,7 @@
         hospitalNearby: "聯合醫院 (United Christian Hospital)、九龍醫院、聖母醫院",
         description: "九龍市區核心高層簡約公屋項目，配備高速升降機直達各層。鄰近基督教聯合醫院，覆診極為便利，設有長者友善設施及社工服務站。",
         contact: "3464 0700 (房屋局簡約公屋專線)",
-        officialUrl: "https://www.hb.gov.hk/tc/lph/index.html",
+        officialUrl: OFFICIAL_LPH_URL,
         googleMapQuery: "Choi+Hing+Road+Ngau+Tau+Kok",
         lastUpdated: "2026-10-15"
       },
@@ -888,7 +891,7 @@
         hospitalNearby: "啟德新急症醫院、香港兒童醫院、伊利沙伯醫院、九龍醫院",
         description: "全港規模最大之簡約公屋旗艦（共逾一萬伙），全項目配備升降機及無障礙通道。毗鄰啟德新急症全科醫院及兒童醫院，極適合需密集專科覆診之家庭。",
         contact: "3464 0700 (房屋局簡約公屋專線)",
-        officialUrl: "https://www.hb.gov.hk/tc/lph/index.html",
+        officialUrl: OFFICIAL_LPH_URL,
         googleMapQuery: "Olympic+Avenue+Kai+Tak",
         lastUpdated: "2026-10-15"
       },
@@ -915,7 +918,7 @@
         hospitalNearby: "東區尤德夫人那打素醫院 (PYNEH)、柴灣普通科門診",
         description: "港島區唯一大型簡約公屋供應，特別適合需於東區醫院長期洗腎、腫瘤科治療或覆診之港島基層病人。配有全無障礙通道、電梯及社工支援。",
         contact: "3464 0700 (房屋局簡約公屋專線)",
-        officialUrl: "https://www.hb.gov.hk/tc/lph/index.html",
+        officialUrl: OFFICIAL_LPH_URL,
         googleMapQuery: "Sheung+On+Street+Chai+Wan",
         lastUpdated: "2026-10-14"
       },
@@ -942,7 +945,7 @@
         hospitalNearby: "屯門醫院 (Tuen Mun Hospital)、青山醫院、屯門仁愛分科診所",
         description: "極度鄰近屯門醫院主院區，對新界西聯網出院規劃（Discharge Planning）及長期病患極為理想。全高層大廈配有多部升降機及復康支援。",
         contact: "3464 0700 (房屋局簡約公屋專線)",
-        officialUrl: "https://www.hb.gov.hk/tc/lph/index.html",
+        officialUrl: OFFICIAL_LPH_URL,
         googleMapQuery: "Tsing+Fuk+Lane+Tuen+Mun",
         lastUpdated: "2026-10-15"
       },
@@ -969,7 +972,7 @@
         hospitalNearby: "屯門醫院 (5分鐘車程直達)、博愛醫院",
         description: "新界西最大規模之簡約公屋項目，毗鄰新建成之菁田邨及和田邨商場街市，生活配套極為成熟，設有無障礙升降機及大型社福中心。",
         contact: "3464 0700 (房屋局簡約公屋專線)",
-        officialUrl: "https://www.hb.gov.hk/tc/lph/index.html",
+        officialUrl: OFFICIAL_LPH_URL,
         googleMapQuery: "Yan+Po+Road+Tuen+Mun",
         lastUpdated: "2026-10-14"
       },
@@ -996,7 +999,7 @@
         hospitalNearby: "屯門醫院、小欖醫院、仁濟醫院",
         description: "臨海開揚環境，空氣清新，配有升降機及社區健康支援站，適合呼吸系統復康長者及需要寧靜休養環境的家庭。",
         contact: "3464 0700 (房屋局簡約公屋專線)",
-        officialUrl: "https://www.hb.gov.hk/tc/lph/index.html",
+        officialUrl: OFFICIAL_LPH_URL,
         googleMapQuery: "Lok+On+Pai+Siu+Lam+Tuen+Mun",
         lastUpdated: "2026-10-12"
       },
@@ -1023,7 +1026,7 @@
         hospitalNearby: "威爾斯親王醫院 (Prince of Wales Hospital)、沙田醫院、馬鞍山健康院",
         description: "新界東極受歡迎之市中心簡約公屋，緊貼港鐵站及街市，設有升降機直達，極適合於威爾斯親王醫院覆診之沙田及馬鞍山病人。",
         contact: "3464 0700 (房屋局簡約公屋專線)",
-        officialUrl: "https://www.hb.gov.hk/tc/lph/index.html",
+        officialUrl: OFFICIAL_LPH_URL,
         googleMapQuery: "Hang+Kwong+Street+Ma+On+Shan",
         lastUpdated: "2026-10-13"
       },
@@ -1050,7 +1053,7 @@
         hospitalNearby: "北區醫院 (North District Hospital)、石湖墟賽馬會診所",
         description: "專為北區及新界東基層家庭而設，配備升降機、社區零售及社工支援中心，距離北區醫院僅短途車程。",
         contact: "3464 0700 (房屋局簡約公屋專線)",
-        officialUrl: "https://www.hb.gov.hk/tc/lph/index.html",
+        officialUrl: OFFICIAL_LPH_URL,
         googleMapQuery: "Lin+Tong+Mei+Sheung+Shui",
         lastUpdated: "2026-10-10"
       },
@@ -1079,7 +1082,7 @@
         hospitalNearby: "博愛醫院 (同系醫療支援直通)、元朗賽馬會健康院",
         description: "全港最大型過渡性房屋項目之一，全村設有升降機！村內設博愛中醫及西醫診所、牙科服務、健康中心、社區飯堂及超值超市。乙類醫療轉介極快。",
         contact: "2482 3900 / WhatsApp: 6739 8816 (博愛江夏圍村)",
-        officialUrl: "https://th-homes.hk",
+        officialUrl: OFFICIAL_TH_URL,
         googleMapQuery: "Kong+Ha+Wai+Village+Kam+Sheung+Road",
         lastUpdated: "2026-10-15"
       },
@@ -1106,7 +1109,7 @@
         hospitalNearby: "博愛醫院、天水圍醫院、屯門醫院",
         description: "位處元朗市中心邊緣，步行可達朗屏站。配備升降機及無障礙通道，村內設綜合家庭服務、長者日間健康站、廉價超市及駐村社工隊。",
         contact: "2670 0388 / WhatsApp: 5485 1388",
-        officialUrl: "https://th-homes.hk",
+        officialUrl: OFFICIAL_TH_URL,
         googleMapQuery: "1+Shan+Pui+Road+Yuen+Long+United+Court",
         lastUpdated: "2026-10-15"
       },
@@ -1133,7 +1136,7 @@
         hospitalNearby: "博愛醫院",
         description: "大型生態健康社區項目，樓高4層（地下設有無障礙輪椅友善單位，適合行動不便人士免上落樓梯）。設有社區農圃、健康檢查站及家庭支援中心。",
         contact: "2488 2262 / WhatsApp: 9166 5230 (路德會七星薈)",
-        officialUrl: "https://th-homes.hk",
+        officialUrl: OFFICIAL_TH_URL,
         googleMapQuery: "Kam+Tai+Road+Pat+Heung+Yuen+Long",
         lastUpdated: "2026-10-13"
       },
@@ -1160,7 +1163,7 @@
         hospitalNearby: "北區醫院、博愛醫院",
         description: "環境清幽低密度項目，地下層提供無障礙輪椅直達單位，設有長者健康關顧服務、物理治療外展支援及社區互助廚房。",
         contact: "2488 3080 / WhatsApp: 9166 5231 (路德會雙魚薈)",
-        officialUrl: "https://th-homes.hk",
+        officialUrl: OFFICIAL_TH_URL,
         googleMapQuery: "160+Fan+Kam+Road+Pat+Heung",
         lastUpdated: "2026-10-13"
       },
@@ -1187,7 +1190,7 @@
         hospitalNearby: "天水圍醫院 (約10分鐘車程)、屯門醫院",
         description: "位處洪水橋成熟社區，緊鄰洪福邨街市及商場，配備無障礙設施及仁愛堂中醫醫療車定期到診，生活及就醫極為便利。",
         contact: "2655 7788 (仁愛堂仁愛居)",
-        officialUrl: "https://th-homes.hk",
+        officialUrl: OFFICIAL_TH_URL,
         googleMapQuery: "Hung+Yuen+Road+Hung+Shui+Kiu",
         lastUpdated: "2026-10-14"
       },
@@ -1213,8 +1216,8 @@
         transport: "步行約8分鐘至輕鐵泥圍站及青山公路巴士站，直達屯門醫院及元朗",
         hospitalNearby: "屯門醫院、天水圍醫院",
         description: "大型新界西過渡屋，地面層設有專為行動不便病患設計之無障礙單位，內設社區便利店、社工室及仁濟醫療健康外展服務。",
-        contact: "2409 0099 / th-homes.hk",
-        officialUrl: "https://th-homes.hk",
+        contact: "2409 0099 / 房屋局住得易",
+        officialUrl: OFFICIAL_TH_URL,
         googleMapQuery: "Yick+Yuen+Road+Tuen+Mun",
         lastUpdated: "2026-10-12"
       },
@@ -1241,7 +1244,7 @@
         hospitalNearby: "屯門醫院、仁愛普通科門診",
         description: "配備升降機之市區邊緣項目，設有齊惜福社區廚房提供營養熱食支援，對獨居長者或缺乏煮食能力之病患非常貼心。",
         contact: "2116 1234 (齊惜福)",
-        officialUrl: "https://th-homes.hk",
+        officialUrl: OFFICIAL_TH_URL,
         googleMapQuery: "Sam+Shing+Estate+Tuen+Mun",
         lastUpdated: "2026-10-13"
       },
@@ -1269,8 +1272,8 @@
         transport: "步行約8-10分鐘達港鐵荃灣站及荃灣西站，周邊巴士及小巴極度完善",
         hospitalNearby: "仁濟醫院 (步行約8分鐘即達)、瑪嘉烈醫院",
         description: "荃灣市中心核心項目，步行即可到達仁濟醫院覆診！配備無障礙通道及社區膳食支援，極受九龍西及荃灣醫院聯網社工推薦。",
-        contact: "2116 1234 / th-homes.hk",
-        officialUrl: "https://th-homes.hk",
+        contact: "2116 1234 / 房屋局住得易",
+        officialUrl: OFFICIAL_TH_URL,
         googleMapQuery: "28+Luen+Yan+Street+Tsuen+Wan",
         lastUpdated: "2026-10-14"
       },
@@ -1297,7 +1300,7 @@
         hospitalNearby: "仁濟醫院 (同系醫院直通支援)、瑪嘉烈醫院",
         description: "由仁濟醫院直接營運，住戶可獲仁濟醫療基金、中醫及基層健康跟進，地下設有無障礙單位。",
         contact: "2416 8882 (仁濟醫院社會服務部)",
-        officialUrl: "https://th-homes.hk",
+        officialUrl: OFFICIAL_TH_URL,
         googleMapQuery: "Hoi+Kok+Street+Tsuen+Wan",
         lastUpdated: "2026-10-12"
       },
@@ -1324,7 +1327,7 @@
         hospitalNearby: "仁濟醫院、瑪嘉烈醫院 (Princess Margaret Hospital)、葵涌醫院",
         description: "配備升降機直達各層！社協預留高達50%乙類名額予急切需要改善居所或有醫療需要的家庭，社工轉介手續簡便迅速。",
         contact: "2713 8003 / 3611 8482 (社協 SoCO)",
-        officialUrl: "https://th-homes.hk",
+        officialUrl: OFFICIAL_TH_URL,
         googleMapQuery: "Yau+Ma+Hom+Road+Kwai+Chung",
         lastUpdated: "2026-10-14"
       },
@@ -1353,7 +1356,7 @@
         hospitalNearby: "北區醫院 (North District Hospital)、粉嶺家庭醫學中心",
         description: "北區重點過渡性房屋，村內設有社區餐廳、長者活動中心、中醫醫療車服務及地下無障礙單位，適合於北區醫院覆診之病患。",
         contact: "2670 8300 (博愛昇平村辦事處)",
-        officialUrl: "https://th-homes.hk",
+        officialUrl: OFFICIAL_TH_URL,
         googleMapQuery: "Sing+Ping+School+Ping+Che+Fanling",
         lastUpdated: "2026-10-14"
       },
@@ -1380,7 +1383,7 @@
         hospitalNearby: "雅麗氏何妙齡那打素醫院 (大埔那打素醫院)、大埔醫院",
         description: "大埔區最大規模過渡性房屋，鄰近大埔那打素醫院及大埔醫院！設有樂善堂基層醫療支援、社區藥房諮詢及地下無障礙輪椅單位。",
         contact: "2272 9888 (九龍樂善堂)",
-        officialUrl: "https://th-homes.hk",
+        officialUrl: OFFICIAL_TH_URL,
         googleMapQuery: "Wong+Yue+Tan+Ting+Kok+Road+Tai+Po",
         lastUpdated: "2026-10-15"
       },
@@ -1407,7 +1410,7 @@
         hospitalNearby: "大埔那打素醫院 (AHNH)、大埔醫院",
         description: "善導會營運，對精神健康復元人士、慢性病患及更生或弱勢家庭極具包容及專業社工支援，乙類配額充裕。",
         contact: "2527 1322 / WhatsApp: 5693 2110",
-        officialUrl: "https://th-homes.hk",
+        officialUrl: OFFICIAL_TH_URL,
         googleMapQuery: "Shuen+Wan+Ting+Kok+Road+Tai+Po",
         lastUpdated: "2026-10-13"
       },
@@ -1434,7 +1437,7 @@
         hospitalNearby: "威爾斯親王醫院、沙田醫院",
         description: "極罕有緊貼港鐵站之新界東電梯過渡性房屋！配備升降機及無障礙通道，由東華三院提供全面醫療轉介及社區康健服務。",
         contact: "2859 7500 (東華三院)",
-        officialUrl: "https://th-homes.hk",
+        officialUrl: OFFICIAL_TH_URL,
         googleMapQuery: "3+Lok+Wo+Sha+Lane+Ma+On+Shan",
         lastUpdated: "2026-10-15"
       },
@@ -1461,7 +1464,7 @@
         hospitalNearby: "將軍澳醫院 (Tseung Kwan O Hospital)、基督教聯合醫院",
         description: "將軍澳市中心逾千伙大型項目，配備升降機直達各層！距離將軍澳醫院僅數分鐘車程，由CFSC提供基層醫療、心理健康及家庭支援。",
         contact: "2861 0283 / WhatsApp: 9540 1280 (CFSC)",
-        officialUrl: "https://th-homes.hk",
+        officialUrl: OFFICIAL_TH_URL,
         googleMapQuery: "Tong+Yin+Street+Tseung+Kwan+O",
         lastUpdated: "2026-10-15"
       },
@@ -1488,7 +1491,7 @@
         hospitalNearby: "將軍澳醫院 (極近，約5分鐘車程)、靈實醫院",
         description: "緊鄰將軍澳醫院及靈實醫院，配備升降機，特別適合九龍東聯網（KEC）需要頻繁門診或復康治療之病人申請。",
         contact: "2861 0283 (基督教家庭服務中心)",
-        officialUrl: "https://th-homes.hk",
+        officialUrl: OFFICIAL_TH_URL,
         googleMapQuery: "Po+Lam+North+Road+Tseung+Kwan+O",
         lastUpdated: "2026-10-14"
       },
@@ -1517,7 +1520,7 @@
         hospitalNearby: "啟德新急症醫院、香港兒童醫院、伊利沙伯醫院、廣華醫院",
         description: "東華三院九龍市區旗艦過渡屋，配備升降機及無障礙設施，內設健康護理站及社工服務隊，單位附設獨立廚廁及熱水爐。",
         contact: "2859 7500 / 2859 7650 (東華三院)",
-        officialUrl: "https://th-homes.hk",
+        officialUrl: OFFICIAL_TH_URL,
         googleMapQuery: "12+Muk+On+Street+Kai+Tak",
         lastUpdated: "2026-10-15"
       },
@@ -1544,7 +1547,7 @@
         hospitalNearby: "九龍醫院、伊利沙伯醫院、聖母醫院",
         description: "九龍城成熟社區核心，毗鄰樂善堂總部中西醫診所及社區藥房，特設長者慢性病藥物支援及廉價營養膳食。",
         contact: "2272 9888 / 2382 1576",
-        officialUrl: "https://th-homes.hk",
+        officialUrl: OFFICIAL_TH_URL,
         googleMapQuery: "Sung+Wong+Toi+Road+Kowloon+City",
         lastUpdated: "2026-10-14"
       },
@@ -1571,7 +1574,7 @@
         hospitalNearby: "明愛醫院 (Caritas Medical Centre)、瑪嘉烈醫院、長沙灣賽馬會診所",
         description: "配備升降機！專為深水埗不適切居所（劏房/天台屋）病患及基層家庭設立，高達50%乙類社工特快配額，一對一個案跟進。",
         contact: "2713 8003 / 2725 3327 (社協 SoCO)",
-        officialUrl: "https://th-homes.hk",
+        officialUrl: OFFICIAL_TH_URL,
         googleMapQuery: "Ying+Wa+Street+Cheung+Sha+Wan",
         lastUpdated: "2026-10-14"
       },
@@ -1598,7 +1601,7 @@
         hospitalNearby: "聖母醫院、東華三院黃大仙醫院、佛教醫院",
         description: "黃大仙市區核心電梯過渡屋，鄰近聖母醫院及黃大仙醫院，配備升降機及聖公會駐場社工與復康團隊。",
         contact: "2521 3457 (聖公會福利協會)",
-        officialUrl: "https://th-homes.hk",
+        officialUrl: OFFICIAL_TH_URL,
         googleMapQuery: "Choi+Hung+Road+Wong+Tai+Sin",
         lastUpdated: "2026-10-13"
       },
@@ -1625,7 +1628,7 @@
         hospitalNearby: "東區尤德夫人那打素醫院 (東區醫院 PYNEH)",
         description: "港島東區配備升降機之過渡性房屋，由浸信會愛羣社會服務處提供身心健康、精神健康及營養膳食支援。",
         contact: "3413 1500 (浸信會愛羣社會服務處)",
-        officialUrl: "https://th-homes.hk",
+        officialUrl: OFFICIAL_TH_URL,
         googleMapQuery: "Sheung+On+Street+Chai+Wan",
         lastUpdated: "2026-10-14"
       }
@@ -1634,7 +1637,7 @@
     /* ===================================================================
        2. APP STATE & INITIALIZATION
        =================================================================== */
-    const STORAGE_KEY = "msw_housing_finder_v3_complete_data";
+    const STORAGE_KEY = "msw_housing_finder_v4_valid_links";
     let projects = [];
     let currentViewMode = "grid"; // "grid" or "list"
     let currentSelectedProjectId = null;
@@ -1661,18 +1664,31 @@
       el.textContent = "香港時間: " + now.toLocaleDateString('zh-HK', options);
     }
 
+    function sanitizeProjectUrls(list) {
+      return list.map(p => {
+        const updated = { ...p };
+        if (!updated.officialUrl || updated.officialUrl.includes("th-homes.hk")) {
+          updated.officialUrl = updated.type === "LPH" ? OFFICIAL_LPH_URL : OFFICIAL_TH_URL;
+        } else if (updated.officialUrl.includes("hb.gov.hk/tc/lph/index.html")) {
+          updated.officialUrl = OFFICIAL_LPH_URL;
+        }
+        if (updated.contact && updated.contact.includes("th-homes.hk")) {
+          updated.contact = updated.contact.replace("th-homes.hk", "房屋局住得易");
+        }
+        return updated;
+      });
+    }
+
     function loadProjectsData() {
       try {
         const stored = localStorage.getItem(STORAGE_KEY);
         if (stored) {
-          const parsed = JSON.parse(stored);
+          const parsed = sanitizeProjectUrls(JSON.parse(stored));
           // Merge any missing DEFAULT_PROJECTS so updates are never missed
           const existingIds = new Set(parsed.map(p => p.id));
           const missingDefaults = DEFAULT_PROJECTS.filter(d => !existingIds.has(d.id));
           projects = [...missingDefaults, ...parsed];
-          if (missingDefaults.length > 0) {
-            saveProjectsToStorage();
-          }
+          saveProjectsToStorage();
         } else {
           projects = JSON.parse(JSON.stringify(DEFAULT_PROJECTS));
           saveProjectsToStorage();
@@ -2278,7 +2294,7 @@
       mapBtn.href = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(p.name + " " + p.address)}`;
 
       const officialBtn = document.getElementById("detailOfficialLink");
-      officialBtn.href = p.officialUrl || "https://th-homes.hk";
+      officialBtn.href = p.officialUrl || (p.type === 'LPH' ? OFFICIAL_LPH_URL : OFFICIAL_TH_URL);
 
       document.getElementById("detailsModal").classList.remove("hidden");
     }
@@ -2408,7 +2424,7 @@
         hospitalNearby: document.getElementById("formHospital").value.trim(),
         description: document.getElementById("formDescription").value.trim(),
         contact: document.getElementById("formContact").value.trim(),
-        officialUrl: document.getElementById("formOfficialUrl").value.trim() || "https://th-homes.hk",
+        officialUrl: document.getElementById("formOfficialUrl").value.trim() || (document.getElementById("formType").value === 'LPH' ? OFFICIAL_LPH_URL : OFFICIAL_TH_URL),
         lastUpdated: new Date().toISOString().split('T')[0]
       };
 
