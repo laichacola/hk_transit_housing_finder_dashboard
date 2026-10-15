@@ -88,13 +88,13 @@
     <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-2.5 sm:py-3">
       <div class="flex items-center justify-between gap-2">
         <!-- Logo / Simplified Title -->
-        <div class="flex items-center gap-2.5 min-w-0">
-          <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-blue-700 text-white flex items-center justify-center shrink-0 shadow-xs">
-            <i class="ph-bold ph-buildings text-xl"></i>
+        <div class="flex items-center gap-2 min-w-0">
+          <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-blue-700 text-white flex items-center justify-center shrink-0 shadow-xs">
+            <i class="ph-bold ph-buildings text-lg sm:text-xl"></i>
           </div>
           <div class="min-w-0">
-            <h1 class="text-sm sm:text-lg font-bold text-slate-900 truncate">
-              簡約公屋 & 過渡屋速查
+            <h1 class="text-[13px] sm:text-lg font-bold text-slate-900 truncate">
+              簡約及過渡屋速查
             </h1>
             <p class="text-[11px] text-slate-500 truncate hidden sm:block">
               香港過渡性房屋及簡約公屋配額與申請指南
@@ -251,131 +251,18 @@
         </select>
 
         <!-- Hidden selects to preserve existing JS compatibility -->
-        <select id="filterStatus" class="hidden"><option value="all">all</option><option value="open">open</option></select>
-        <select id="filterCategory" class="hidden"><option value="all">all</option><option value="catB">catB</option></select>
-      </div>
-    </section>
-
-    <!-- SEARCH & FILTER TOOLBAR -->
-    <section class="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-xs space-y-4">
-      <!-- Search Input + Quick Helpers -->
-      <div class="flex flex-col md:flex-row gap-3">
-        <div class="relative flex-1">
-          <i class="ph ph-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-lg"></i>
-          <input 
-            type="text" 
-            id="searchInput" 
-            placeholder="搜尋項目名稱、地區（元朗/牛頭角/柴灣/啟德）、營運機構（博愛/社協/東華）、地鐵站、醫院接駁..." 
-            class="w-full pl-10 pr-10 py-2.5 text-sm bg-slate-50 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-600 focus:bg-white transition-all placeholder:text-slate-400"
-            oninput="handleFilterChange()"
-          >
-          <button id="clearSearchBtn" onclick="clearSearch()" class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 text-base">
-            <i class="ph ph-x-circle"></i>
-          </button>
-        </div>
-
-        <!-- Quick filter chips / reset -->
-        <div class="flex items-center gap-2 overflow-x-auto pb-1 md:pb-0">
-          <button onclick="quickFilter('yl_tsw')" class="text-xs px-3 py-2 bg-amber-50 hover:bg-amber-100 text-amber-800 rounded-lg whitespace-nowrap flex items-center gap-1 transition-colors border border-amber-200 font-medium">
-            <i class="ph-bold ph-map-pin text-amber-600"></i> 元朗/天水圍/流浮山/真善路
-          </button>
-          <button onclick="quickFilter('accessible')" class="text-xs px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg whitespace-nowrap flex items-center gap-1 transition-colors border border-slate-200">
-            <i class="ph-bold ph-wheelchair text-blue-600"></i> 無障礙 / 有電梯
-          </button>
-          <button onclick="quickFilter('immediate')" class="text-xs px-3 py-2 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 rounded-lg whitespace-nowrap flex items-center gap-1 transition-colors border border-emerald-200">
-            <i class="ph-bold ph-lightning text-emerald-600"></i> 即時有空缺
-          </button>
-          <button onclick="quickFilter('catB')" class="text-xs px-3 py-2 bg-indigo-50 hover:bg-indigo-100 text-indigo-800 rounded-lg whitespace-nowrap flex items-center gap-1 transition-colors border border-indigo-200">
-            <i class="ph-bold ph-heartbeat text-indigo-600"></i> 支援乙類/特快
-          </button>
-          <button onclick="resetFilters()" class="text-xs px-2.5 py-2 text-slate-500 hover:text-slate-800 hover:bg-slate-100 rounded-lg whitespace-nowrap transition-colors" title="重設所有篩選">
-            <i class="ph ph-arrow-counter-clockwise"></i> 重設
-          </button>
-        </div>
-      </div>
-
-      <!-- Advanced Filter Selectors Row -->
-      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5 pt-2 border-t border-slate-100 text-xs">
-        <!-- Scheme Type -->
-        <div>
-          <label class="block font-semibold text-slate-600 mb-1">項目類別</label>
-          <select id="filterType" onchange="handleFilterChange()" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-2.5 py-1.5 focus:outline-none focus:ring-1 focus:ring-blue-600">
-            <option value="all">全部類別 (All Schemes)</option>
-            <option value="LPH">簡約公屋 (Light Public Housing)</option>
-            <option value="Transitional">過渡性房屋 (Transitional)</option>
-          </select>
-        </div>
-
-        <!-- District -->
-        <div>
-          <label class="block font-semibold text-slate-600 mb-1">地區及細分區域</label>
-          <select id="filterDistrict" onchange="handleFilterChange()" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-2.5 py-1.5 focus:outline-none focus:ring-1 focus:ring-blue-600">
-            <option value="all">全港所有地區 (All Districts)</option>
-            <optgroup label="按三大區域">
-              <option value="新界">新界全區 (New Territories)</option>
-              <option value="九龍">九龍全區 (Kowloon)</option>
-              <option value="港島">港島全區 (HK Island)</option>
-            </optgroup>
-            <optgroup label="新界細分區域 (熱門)">
-              <option value="元朗/天水圍/流浮山">元朗 / 天水圍 / 流浮山</option>
-              <option value="牛潭尾/新田/錦田">元朗牛潭尾 / 真善路 / 錦田</option>
-              <option value="屯門/洪水橋">屯門 / 洪水橋 / 小欖</option>
-              <option value="荃灣/葵青">荃灣 / 葵涌 / 青衣</option>
-              <option value="上水/打鼓嶺/大埔">上水 / 打鼓嶺 / 大埔</option>
-              <option value="沙田/馬鞍山/將軍澳">馬鞍山 / 將軍澳</option>
-            </optgroup>
-            <optgroup label="市區細分區域">
-              <option value="深水埗/長沙灣">深水埗 / 長沙灣 / 南昌</option>
-              <option value="九龍城/啟德/土瓜灣">九龍城 / 啟德 / 土瓜灣</option>
-              <option value="黃大仙/牛頭角/觀塘">黃大仙 / 牛頭角 / 觀塘</option>
-              <option value="柴灣/港島南">柴灣 / 赤柱 / 港島區</option>
-            </optgroup>
-          </select>
-        </div>
-
-        <!-- Vacancy Status -->
-        <div>
-          <label class="block font-semibold text-slate-600 mb-1">配額及申請狀態</label>
-          <select id="filterStatus" onchange="handleFilterChange()" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-2.5 py-1.5 focus:outline-none focus:ring-1 focus:ring-blue-600">
-            <option value="all">全部狀態</option>
-            <option value="open">開放申請 / 即時有位</option>
-            <option value="waitlist">輪候中 (Waitlist)</option>
-            <option value="upcoming">即將落成 / 新一輪預計</option>
-            <option value="full">暫時滿額</option>
-          </select>
-        </div>
-
-        <!-- Target Group -->
-        <div>
-          <label class="block font-semibold text-slate-600 mb-1">申請資格類別</label>
-          <select id="filterCategory" onchange="handleFilterChange()" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-2.5 py-1.5 focus:outline-none focus:ring-1 focus:ring-blue-600">
-            <option value="all">甲類及乙類均可</option>
-            <option value="catA">甲類優先 (輪候公屋 ≥ 3年)</option>
-            <option value="catB">乙類 / 醫療特殊轉介 (&lt; 3年)</option>
-          </select>
-        </div>
-
-        <!-- Household Size Fit -->
-        <div>
-          <label class="block font-semibold text-slate-600 mb-1">單位戶型</label>
-          <select id="filterHousehold" onchange="handleFilterChange()" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-2.5 py-1.5 focus:outline-none focus:ring-1 focus:ring-blue-600">
-            <option value="all">所有戶型</option>
-            <option value="1">1 人單位</option>
-            <option value="2">2 人家庭單位</option>
-            <option value="3-4">3 至 4 人家庭單位</option>
-            <option value="5+">5 人或以上大單位</option>
-          </select>
-        </div>
-
-        <!-- Accessibility -->
-        <div>
-          <label class="block font-semibold text-slate-600 mb-1">無障礙設施 / 電梯</label>
-          <select id="filterAccessible" onchange="handleFilterChange()" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-2.5 py-1.5 focus:outline-none focus:ring-1 focus:ring-blue-600">
-            <option value="all">不限</option>
-            <option value="yes">必須有電梯或無障礙通道</option>
-            <option value="special">提供輪椅無障礙專用單位</option>
-          </select>
-        </div>
+        <select id="filterStatus" class="hidden">
+          <option value="all">all</option>
+          <option value="open">open</option>
+          <option value="waitlist">waitlist</option>
+          <option value="upcoming">upcoming</option>
+          <option value="full">full</option>
+        </select>
+        <select id="filterCategory" class="hidden">
+          <option value="all">all</option>
+          <option value="catA">catA</option>
+          <option value="catB">catB</option>
+        </select>
       </div>
     </section>
 
